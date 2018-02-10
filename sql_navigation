@@ -1,16 +1,16 @@
-/* LIST ALL TABLES ON SERVER */
+/* LIST ALL TABLES OBJECTS ON SERVER */
 sp_MSforeachdb 'SELECT "?" AS db, * FROM [?].sys.tables'
-/* FIND TABLES BY NAME ACROSS ALL DBs*/
+/* FIND TABLES BY NAME ACROSS ALL DBs */
 sp_MSforeachdb 'SELECT "?" AS DB, * FROM [?].sys.tables WHERE name like ''%your_table_name%'''
-/* FIND COLUMNS BY NAME ACROSS ALL DBs*/
+/* FIND COLUMNS BY NAME ACROSS ALL DBs */
 sp_MSforeachdb 'SELECT "?" AS DB, * FROM [?].information_schema.columns WHERE column_name LIKE ''%name_of_column%'''
 
-/* FIND TABLE WITHIN SINGLE DB */
+/* FIND TABLE WITHIN CURRENT DB */
 SELECT *
 FROM SYS.TABLES
 WHERE NAME LIKE '%your_table_name%'
  
-/* FIND COLUMNS BY NAME WITH IN A DB */
+/* FIND COLUMNS BY NAME WITHIN CURRENT DB */
 SELECT *
 FROM information_schema.columns
 WHERE column_name LIKE '%name_of_column%'
