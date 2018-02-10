@@ -1,0 +1,6 @@
+/* LIST ALL TABLES ON SERVER */
+sp_MSforeachdb 'SELECT "?" AS db, * FROM [?].sys.tables'
+/* FIND TABLES BY NAME ACROSS ALL DBs*/
+sp_MSforeachdb 'SELECT "?" AS DB, * FROM [?].sys.tables WHERE name like ''%your_table_name%'''
+/* FIND COLUMNS BY NAME ACROSS ALL DBs*/
+sp_MSforeachdb 'SELECT "?" AS DB, * FROM [?].information_schema.columns WHERE column_name LIKE ''%name_of_column%'''
