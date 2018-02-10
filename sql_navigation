@@ -4,3 +4,13 @@ sp_MSforeachdb 'SELECT "?" AS db, * FROM [?].sys.tables'
 sp_MSforeachdb 'SELECT "?" AS DB, * FROM [?].sys.tables WHERE name like ''%your_table_name%'''
 /* FIND COLUMNS BY NAME ACROSS ALL DBs*/
 sp_MSforeachdb 'SELECT "?" AS DB, * FROM [?].information_schema.columns WHERE column_name LIKE ''%name_of_column%'''
+
+/* FIND TABLE WITHIN SINGLE DB */
+SELECT *
+FROM SYS.TABLES
+WHERE NAME LIKE '%your_table_name%'
+ 
+/* FIND COLUMNS BY NAME WITH IN A DB */
+SELECT *
+FROM information_schema.columns
+WHERE column_name LIKE '%name_of_column%'
